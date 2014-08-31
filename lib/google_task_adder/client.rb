@@ -1,10 +1,10 @@
-module TaskAdder
+module GoogleTaskAdder
   class Client
 
-    CREDENTIAL_STORE_FILE = "task-adder-oauth2.json"
+    CREDENTIAL_STORE_FILE = "google-task-adder-oauth2.json"
 
     def initialize
-      @google_client = Google::APIClient.new(application_name: 'Task Adder',
+      @google_client = Google::APIClient.new(application_name: 'Google Task Adder',
                                              application_version: '0.1.0')
       @tasks = @google_client.discovered_api('tasks', 'v1')
 

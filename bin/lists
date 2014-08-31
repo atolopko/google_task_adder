@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
 require 'rubygems'
-require 'task_adder'
+require 'google_task_adder'
 
-puts TaskAdder::Client.new.lists
+puts GoogleTaskAdder::Client.new.lists

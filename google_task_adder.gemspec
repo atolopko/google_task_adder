@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'task_adder/version'
+require 'google_task_adder/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "task_adder"
-  spec.version       = TaskAdder::VERSION
+  spec.name          = "google_task_adder"
+  spec.version       = GoogleTaskAdder::VERSION
   spec.authors       = ["Andrew Tolopko"]
   spec.email         = ["github@tolopko.com"]
   spec.summary       = %q{Add a task to Google Tasks.}
