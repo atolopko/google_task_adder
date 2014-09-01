@@ -1,14 +1,16 @@
 module GoogleTaskAdder
   class Client
 
-    CREDENTIAL_STORE_FILE = "google-task-adder-oauth2.json"
+    USER_CONFIG_DIR = File.join(File.expand_path('~'), '.google_task_adder')
+    CLIENT_SECRETS_FILE = File.join(USER_CONFIG_DIR, 'client_secrets.json')
+    CREDENTIAL_STORE_FILE = File.join(USER_CONFIG_DIR, 'oauth2.json')
 
     def initialize
       @google_client = Google::APIClient.new(application_name: 'Google Task Adder',
                                              application_version: '0.1.0')
       @tasks = @google_client.discovered_api('tasks', 'v1')
 
-      client_secrets = Google::APIClient::ClientSecrets.load
+      client_secrets = Google::APIClient::ClientSecrets.load(CLIENT_SECRETS_FILE)
 
       # FileStorage stores auth credentials in a file, so they survive multiple runs
       # of the application. This avoids prompting the user for authorization every
