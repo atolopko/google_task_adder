@@ -26,12 +26,29 @@ module GoogleTaskAdder
       end
     end
 
-    def add(task)
+    # Options: 
+    # title: the title of the task
+    # note: additional note text associated with the task
+    # list: title of Task List into which new task will be inserted (defaults to first list)
+    # For other accepted task attributes, see https://developers.google.com/google-apps/tasks/v1/reference/tasks#resource
+    def add(opts = {})
+      tasklist = find_list(opts.delete(:list)) { |lists| lists[0] }
+      task = @tasks.tasks.insert.request_schema.new(opts)
+      result = @google_client.execute(api_method: @tasks.tasks.insert,
+                                      parameters: { tasklist: tasklist.id },
+                                      body_object: task)
+      result.body
     end
-
+    
+    def find_list(name)
+      _lists = lists
+      _lists.find { |l| l.title == name } or 
+        yield _lists
+    end
+    
     def lists
-      result = @google_client.execute(api_method: @tasks.tasklists.list)
-      puts((JSON.load result.response.body)['items'].map { |l| l['title'] })
+      response = @google_client.execute(api_method: @tasks.tasklists.list)
+      response.data.items
     end
 
   end

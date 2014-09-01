@@ -3,4 +3,4 @@
 require 'rubygems'
 require 'google_task_adder'
 
-puts GoogleTaskAdder::Client.new.lists
+puts GoogleTaskAdder::Client.new.lists.map { |l| l.title }

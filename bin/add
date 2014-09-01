@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'google_task_adder'
+
+puts GoogleTaskAdder::Client.new.add({ title: ARGV[0],
+                                       list: ARGV[1] })
