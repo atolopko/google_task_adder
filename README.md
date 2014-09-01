@@ -8,15 +8,13 @@ a Google account. Uses OAuth2 for account authentication.
 After cloning this project to a local directory:
 
 1. Obtain a client_secrets.json file from your Google Developer Account:
-
-  a. Visit https://console.developers.google.com/project.
-  b. Click "Create Project". Complete dialog.
-  c. Click "APIs & auth: APIs" page, enable "Tasks API".
-  c. Click "APIs & auth: Credentials" page.
-  d  Click "Create new Client ID".
-  e. Select "Installed Application" option, click "Create Client ID" to complete dialog.
-  f. Click "Download JSON" for the new Client ID, saving as `~/.google_task_adder/client_secrets.json`.
-
+  - Visit https://console.developers.google.com/project.
+  - Click "Create Project". Complete dialog.
+  - Click "APIs & auth: APIs" page, enable "Tasks API".
+  - Click "APIs & auth: Credentials" page.
+  - Click "Create new Client ID".
+  - Select "Installed Application" option, click "Create Client ID" to complete dialog.
+  - Click "Download JSON" for the new Client ID, saving as `~/.google_task_adder/client_secrets.json`.
 2. Build and install the gem:
 
     $ rake install
